@@ -25,7 +25,7 @@ The script will generate a list of S3 objects within the specified date range an
 
 Objects listed in objects_to_delete.txt will be deleted from the S3 bucket.
 
-#Script Explanation
+# Script Explanation
 Calculate Date Range:
 
 The script calculates the current date (current_date) and the end date (end_date) by subtracting 30 days from the current date.
@@ -42,6 +42,6 @@ Delete Objects:
 
 The script iterates through the list of objects in objects_to_delete.txt and uses the AWS CLI to delete each object from the S3 bucket.
 
-Important Note
+# Important Note
 
 The script does not perform any confirmation before deleting objects. Ensure that you have reviewed the objects_to_delete.txt file and are certain about the objects you intend to delete.
