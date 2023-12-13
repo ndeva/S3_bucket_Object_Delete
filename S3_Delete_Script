@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Calculate the current date
+current_date=$(date "+%Y-%m-%d")
+
+# Calculate the end date (current date - 30 days)
+end_date=$(date -d "$current_date - 30 days" "+%Y-%m-%d")
+
+# List objects in the bucket with a specified date range
+aws s3 ls s3://<s3 object uri>/ --recursive --human-readable --summarize --region <region> | \
+  awk -v start_date="enter preffered date" -v end_date="$end_date" '$1 >= start_date && $1 <= end_date {print $0}' | \
+  awk -v bucket="bucket name" '{if (NF > 0) {print "s3://" bucket "/" $NF}}' > objects_to_delete.txt
+
+# Delete objects based on the list
+while IFS= read -r line; do
+  aws s3 rm "$line"
+done < objects_to_delete.txt
