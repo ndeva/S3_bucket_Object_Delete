@@ -1,10 +1,11 @@
 # S3_bucket_Object_Delete
-#S3 Bucket Object Deletion Script
+# S3 Bucket Object Deletion Script
 
-#Overview
+# Overview
 This Bash script is designed to facilitate the deletion of objects from an Amazon S3 bucket based on a specified date range. It employs the AWS Command Line Interface (CLI) to list and subsequently delete objects within the defined time frame.
 
-#Usage
+# Usage
+
 Ensure that you have the AWS CLI installed and configured with the necessary credentials.
 
 Replace <s3 object uri> with the URI of your S3 object (e.g., s3://your-bucket-name/path/to/objects).
